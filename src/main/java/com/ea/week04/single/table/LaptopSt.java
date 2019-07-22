@@ -1,9 +1,11 @@
-package com.ea.week04;
+package com.ea.week04.single.table;
 
 import javax.persistence.*;
 
 @Entity
-public class Laptop {
+@Table(name = "single_table_laptop")
+
+public class LaptopSt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +14,7 @@ public class Laptop {
 
     private String model;
 
-    public Laptop(String model) {
+    public LaptopSt(String model) {
         this.model = model;
     }
 

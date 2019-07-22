@@ -1,9 +1,10 @@
-package com.ea.week04;
+package com.ea.week04.single.table;
+
+
+import com.ea.week04.single.table.inheratance.PersonSt;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 public class MyCrud {
     private EntityManagerFactory emf;
@@ -14,7 +15,7 @@ public class MyCrud {
 
     public boolean deleteStudent(int studentId) {
         EntityManager em = emf.createEntityManager();
-        Person tempSt = em.find(Person.class, new Long(studentId));
+        PersonSt tempSt = em.find(PersonSt.class, new Long(studentId));
         if (tempSt == null) {
             return false;
         } else {

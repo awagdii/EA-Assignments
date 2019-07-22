@@ -1,23 +1,24 @@
-package com.ea.week04;
+package com.ea.week04.table.per.concreteclass.inhertance;
 
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-public class Person {
+@Table(name = "table_per_class_person")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public class PersonTpc {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "person_id")
     private Long id;
 
     private String name;
 
 
-    public Person() {
+    public PersonTpc() {
     }
 
-    public Person(String name) {
+    public PersonTpc(String name) {
         this.name = name;
     }
 

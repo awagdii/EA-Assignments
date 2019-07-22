@@ -1,9 +1,10 @@
-package com.ea.week04;
+package com.ea.week04.join.table;
 
 import javax.persistence.*;
 
 @Entity
-public class Notebook {
+@Table(name = "join_table_notebook")
+public class NotebookJt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +14,7 @@ public class Notebook {
     @Column(name = "number_of_pages")
     private int numberOfPages;
 
-    public Notebook(int numberOfPages) {
+    public NotebookJt(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
 

@@ -1,6 +1,7 @@
-package com.ea.week04;
+package com.ea.week04.join.table;
 
-import org.hibernate.jpa.internal.EntityManagerImpl;
+import com.ea.week04.join.table.inhertance.StudentJt;
+import com.ea.week04.join.table.inhertance.TeacherJt;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,22 +11,28 @@ import javax.persistence.Persistence;
 public class App {
 
     public static void main(String[] args) {
-        Student jack = new Student("jack", 3.4);
-        Student john = new Student("john", 3.2);
-        Student jill = new Student("jill", 3.6);
-        Teacher jim = new Teacher("jim", 45000);
-        Teacher jasmin = new Teacher("jasmin", 46000);
+        StudentJt jack = new StudentJt("jack", 3.4);
+        StudentJt john = new StudentJt("john", 3.2);
+        StudentJt jill = new StudentJt("jill", 3.6);
+        TeacherJt jim = new TeacherJt("jim", 45000);
+        TeacherJt jasmin = new TeacherJt("jasmin", 46000);
 
-        Notebook pages100 = new Notebook(100);
-        Notebook pages120 = new Notebook(120);
-        Notebook pages60 = new Notebook(60);
-        Notebook pages200 = new Notebook(200);
-        Notebook pages50 = new Notebook(50);
-        Notebook pages300 = new Notebook(300);
+        NotebookJt pages100 = new NotebookJt(100);
+        NotebookJt pages120 = new NotebookJt(120);
+        NotebookJt pages60 = new NotebookJt(60);
+        NotebookJt pages200 = new NotebookJt(200);
+        NotebookJt pages50 = new NotebookJt(50);
+        NotebookJt pages300 = new NotebookJt(300);
 
         jack.addNoteBooks(pages100, pages120, pages60);
         john.addNoteBooks(pages200, pages50);
         jill.addNoteBooks(pages300);
+
+        LaptopJt mac= new LaptopJt("mac");
+        LaptopJt dell= new LaptopJt("dell");
+
+        jim.setLaptop(mac);
+        jasmin.setLaptop(dell);
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-assignment");
         EntityManager em = emf.createEntityManager();
@@ -41,6 +48,10 @@ public class App {
         em.persist(jack);
         em.persist(john);
         em.persist(jill);
+        em.persist(dell);
+        em.persist(mac);
+        em.persist(jim);
+        em.persist(jasmin);
         MyCrud myCrud = new MyCrud(emf);
         myCrud.deleteStudent(1);
         tx.commit();
