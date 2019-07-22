@@ -1,4 +1,4 @@
-package com.ea.assignment01;
+package com.ea.week02;
 
 public enum Color {
     RED,GREEN,BLUE,WHITE
